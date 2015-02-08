@@ -1,0 +1,48 @@
+{{!< default}}
+
+{{#post}}
+<article id="post__content">
+  <h1 id="post__title" data-identifier="{{date format='DDMMMYYYY'}}">{{title}}</h1>
+  <div class="post-date" datetime="{{date format='DD-MMM-YYYY'}}">{{date format="dddd, MMMM Do YYYY"}}</div>
+
+  {{content}}
+</article> <!-- end #post__content -->
+
+<div class="tag-cloud">
+  <div class="tags-title">Tags:</div>
+  {{#if tags}}
+    {{#foreach tags}}
+        <span class="tag-hashtag">#{{name}}</span>&nbsp;
+    {{/foreach}}
+  {{/if}}
+</div>
+
+<div id="post__share">
+  <a id="footer-icon-1" class="fontello" href="https://www.facebook.com/dialog/share?app_id=329435027245225&display=page&href={{@blog.url}}{{url}}&redirect_uri={{@blog.url}}{{url}}" target="_blank"><i class="fa fa-facebook"></i></a>
+  
+  <a id="footer-icon-2" class="fontello" href="https://twitter.com/share?url={{@blog.url}}{{url}}&text={{title}}&via=michaltakac&hashtags={{#if tags}}{{#foreach tags}}{{name}},{{/foreach}}{{/if}}" target="_blank"><i class="fa fa-twitter"></i></a>
+  
+  <a id="footer-icon-3" class="fontello" href="https://plus.google.com/share?url={{@blog.url}}{{url}}" target="_blank"><i class="fa fa-google-plus"></i></a>
+  
+  <a id="footer-icon-4" class="fontello" href="http://www.tumblr.com/share/link?url={{@blog.url}}{{url}}&name={{title}}&description={{excerpt words='20'}}" target="_blank"><i class="fa fa-tumblr"></i></a>
+  
+  <a id="footer-icon-5" class="fontello" href="http://www.stumbleupon.com/submit?url={{@blog.url}}{{url}}&title={{title}}" target="_blank"><i class="fa fa-stumbleupon"></i></a>
+  
+  <a id="footer-icon-6" class="fontello" href="http://www.linkedin.com/shareArticle?url={{@blog.url}}{{url}}&title={{title}}" target="_blank"><i class="fa fa-linkedin"></i></a>
+
+  <a id="footer-icon-7" class="fontello" href="http://reddit.com/submit?url={{@blog.url}}{{url}}&title={{title}}" target="_blank"><i class="fa fa-reddit"></i></a>
+
+</div> <!-- end #post__share -->
+
+
+<div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink" target="_blank">Loading Disqus comments...</a>
+</div> <!-- end #disqus_thread -->
+
+{{/post}}
+
+<div id="copyright">
+  <p>{{@blog.description}}</p>
+  <p>Powered by <a href="https://ghost.org" target="_blank">Ghost</a></p>
+</div>

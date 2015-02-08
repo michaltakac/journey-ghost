@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <!--[if lte IE 9]><meta http-equiv="refresh" content="0;url=/ie.html"><![endif]-->
+
+    <title>{{meta_title}}</title>
+    <meta name="description" content="{{meta_description}}">
+
+    <link rel="stylesheet" type="text/css" href="{{ asset "css/style.css"}}">
+    <link rel="stylesheet" type="text/css"  href="{{asset "css/prism.css"}}"/>
+
+    <!--[if lte IE 7]><link rel="stylesheet" type="text/css"  href="{{asset "css/fontello-ie7-codes.css"}}"/><![endif]-->
+    <link rel="stylesheet" type="text/css"  href="{{asset "css/fontello-codes.css"}}"/>
+
+    <!--- Font Awesome -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+    <!--- Slimbox2 -->
+    <link rel="stylesheet" href="{{asset "css/slimbox2.css"}}" type="text/css" media="screen" />
+
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+    <aside id="sidebar">
+      <nav id="tags">
+        <a href="{{@blog.url}}" id="avatar">
+          <!--Added ghost's blog.logo support-->
+          <img src="{{@blog.logo}}"/>
+        </a>
+        <p class="blog_title" alt="rtet">{{@blog.title}}</p>
+        <ul id="tags__ul">
+          <li id="js-label1" class="tags__li tags-btn active">All Posts</li>
+          <li id="js-label2" class="tags__li tags-btn">Programming</li>
+          <li id="js-label3" class="tags__li tags-btn">Life</li>
+          <li id="js-label4" class="tags__li tags-btn">Travel</li>
+          <li id="js-label5" class="tags__li tags-btn">Photography</li>
+          <li id="js-label6" class="tags__li tags-btn">Fun</li>
+        </ul>
+
+        <div id="tags__bottom">
+          <a href="https://www.facebook.com/michaltakacdesign" id="icon-facebook" class="tags-btn fontello"><i class="fa fa-facebook"></i></a>
+          <a href="https://www.twitter.com/michaltakac" id="icon-twitter" class="tags-btn fontello"><i class="fa fa-twitter"></i></a>
+          <a href="https://github.com/michaltakac" id="icon-github" class="tags-btn fontello"><i class="fa fa-github"></i></a>
+          <a href="mailto:takacmichal92@gmail.com" id="icon-email" class="tags-btn fontello"></a>    
+          <a href="{{@blog.url}}/rss/" id="icon-feed" class="tags-btn fontello"></a>
+        </div>
+      </nav> <!-- end #tags -->
+
+      <div id="posts-list">
+        <form id="search-form">
+          <a href="{{@blog.url}}" id="mobile-avatar" style="background: url(http://graph.facebook.com/michaltakacdesign/picture?type=large);-webkit-background-size: 50px 50px;-moz-background-size: 50px 50px;background-size: 50px 50px;"></a>
+          <!-- NOTE: input field is disabled by default -->
+          <input id="search-input" name="search" type="text" placeholder="Search...">
+        </form>
+        <div id="search-results"></div>
+
+        <nav id="pl__container">
+        {{#foreach posts}}
+          <a class="{{tags autolink="false"}} pl__all" href="{{url}}">
+            <span class="pl__circle"></span>
+            <span class="pl__title">{{title}}</span>
+            <span class="pl__date">{{date format='DD MMM, YYYY'}}</span>
+          </a>
+        {{/foreach}}
+        </nav>
+      </div> <!-- end #posts-list -->
+    </aside> <!-- end #sidebar -->
+
+    <div id="post">
+      <div id="pjax">
+        {{{body}}}
+      </div> <!-- end #pjax -->
+
+      <div id="post__toc-trigger">
+        <div id="post__toc">
+          <span id="post__toc-title">Table of Contents</span>
+          <ul id="post__toc-ul"></ul>
+        </div>
+      </div>
+    </div> <!-- end #post -->
+
+    <button id="js-fullscreen"><span id="icon-arrow" class="fontello"></span></button>
+
+    <script src="{{asset "js/jquery-2.0.3.min.js"}}"></script>
+    <script src="{{asset "js/jquery.pjax.js"}}"></script>
+    <script src="{{asset "js/jquery.ghostHunter.min.js"}}"></script>
+    <script src="{{asset "js/nprogress.js"}}"></script>
+    <script src="{{asset "js/prism.js"}}"></script>
+    <script src="{{asset "js/script.js"}}"></script>
+    <script src="{{asset "js/slimbox2.js"}}"></script>
+  </body>
+</html>
